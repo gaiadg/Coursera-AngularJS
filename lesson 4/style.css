@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  font-family: 'Reggae One', cursive;
+  text-align: center;
+  color: #ff7b99;
+  font-size: 40px;
+}
+
+body {
+  font-family: 'Reggae One', cursive;
+  color: #048305;
+  text-align: center;
+  font-size: 30px;
+}
+
+
+input {
+  margin-top: 250px;
+}
