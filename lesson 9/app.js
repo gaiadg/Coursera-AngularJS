@@ -1,18 +1,19 @@
 (function () {
   'use strict';
 
-  angular.module('upperingCase', [])
-  .controller('makingUpperCase', makingUpperCase);
+  angular.module('uppercaseApp', [])
+  .controller('uppercaserController', uppercaserController);
 
-    function makingUpperCase ($scope, $filter) {
-      $scope.name="Gaia";
+  function uppercaserController ($scope, $filter){
+    $scope.name = "";
 
-      $scope.upperCaser = function () {
-      var uppercase=$filter('uppercase');
-      $scope.name = uppercase($scope.name);
+    $scope.upperCaser = function () {
+      var upperCaser = $filter('uppercase');
+      $scope.name = upperCaser($scope.name);
+    };
 
-      };
-    }
+  }
+
 
 })
 

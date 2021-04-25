@@ -4,7 +4,7 @@
 
 	angular.module('myFirstApp', [])
   .controller('MyFirstController', function($scope) {
-    $scope.name = 'Gaia';
+    $scope.name = '';
     $scope.sayBuongiornissimo = function () {
       return 'Buongiornissimo Kaffééééé';
     };
