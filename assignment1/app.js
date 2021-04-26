@@ -11,6 +11,8 @@
 
     $scope.countItems = function () {
       var itemsList = $scope.itemTyped.split(' ');
+      console.log(itemsList);
+      console.log(itemsList.length);
       itemAnswer.classList.add("whiteBg")
 
       if (itemsList.length <= 3) {
@@ -19,7 +21,7 @@
       else if (itemsList.length > 3) {
         $scope.itemAnswer = "Too Much!"
       }
-      else {
+      else if (itemsList.length==0) {
         $scope.itemAnswer = "Please enter data first"
       }
 
