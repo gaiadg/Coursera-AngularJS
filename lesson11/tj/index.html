@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+    <script src="angular.min.js" charset="utf-8"></script>
+    <script src="app.js" charset="utf-8"></script>
+  </head>
+  <body ng-app='feedApp'>
+    <div ng-controller='feederApp'>
+      <h1>{{name}} is hungry!</h1>
+      <h3>{{sayMessage()}}</h3>
+      <button ng-click='givingFood();'> Feed TJ</button>
+      <div>
+        <img ng-src='img/toby_{{status}}.jpg' alt="">
+      </div>
+    </div>
+
+  </body>
+</html>

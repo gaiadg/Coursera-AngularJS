@@ -10,7 +10,7 @@
     $scope.status = "hungry";
 
     $scope.sayMessage = function () {
-      return "Voglio la pasta";
+      return "Pls gimme fish";
     };
 
     $scope.givingFood = function () {

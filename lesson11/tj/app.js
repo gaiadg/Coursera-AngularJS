@@ -6,11 +6,11 @@
 
   feederApp.$inject = ['$scope'];
   function feederApp($scope) {
-    $scope.name = "Tony";
+    $scope.name = "TJ";
     $scope.status = "hungry";
 
     $scope.sayMessage = function () {
-      return "Voglio la pasta";
+      return "Pls gimme food";
     };
 
     $scope.givingFood = function () {
