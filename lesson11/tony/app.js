@@ -6,7 +6,7 @@
 
   feederApp.$inject = ['$scope'];
   function feederApp($scope) {
-    $scope.name = "Cass";
+    $scope.name = "Tony";
     $scope.status = "hungry";
 
     $scope.sayMessage = function () {
