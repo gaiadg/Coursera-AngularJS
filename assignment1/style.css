@@ -1,0 +1,38 @@
+body {
+ background-image: url("img/banane.jpg");
+ font-family: 'Kiwi Maru', monospace;
+ text-align: center;
+}
+
+h1  {
+  font-size: 60px;
+  background-color: #FFFFff;
+}
+
+input {
+  padding: 10px;
+  margin: 0 5px;
+  font-family: 'Kiwi Maru', monospace;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+button {
+  background-color: #ffffff;
+  border: solid 5px #000000;
+  border-radius: 5px;
+  padding: 10px;
+  font-family: 'Kiwi Maru', monospace;
+  font-weight: 500;
+  font-size: 20px;
+  margin: 0 5px;
+}
+
+#itemAnswer {
+  padding: 30px;
+  font-size: 25px;
+}
+
+.whiteBg {
+  background-color: #ffffff;
+}

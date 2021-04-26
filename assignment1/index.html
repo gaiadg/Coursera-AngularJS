@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Grocery counter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="angular.min.js" charset="utf-8"></script>
+    <script src="app.js" charset="utf-8"></script>
+  </head>
+  <body ng-app='LunchCheck'>
+    <div>
+      <h1>Welcome to the Store!</h1>
+    </div>
+    <div ng-controller='LunchCheckController'>
+        <div>
+          <input ng-model='itemTyped'>
+          <button ng-click='countItems();'>Check if too much</button>
+        </div>
+        <div id="itemAnswer">
+          {{itemAnswer}}
+        </div>
+    </div>
+
+  </body>
+</html>
