@@ -11,11 +11,12 @@
   <body ng-app='feedApp'>
     <div ng-controller='feederApp'>
       <h1>{{name}} is hungry!</h1>
-      <h3>{{sayMessage()}}</h3>
-      <button ng-click='givingFood();'> Feed Toby</button>
-      Cost: {{fishCost | currency : '@meows' : 4}}
+      <h3>Original: {{sayMessage()}}</h3>
+      <h3>Loves: {{ sayLovesMessage() }}</h3>
+      <h3>Truth: {{ sayLovesMessage() | truth : 'gimme' : 'gimme ALL THE' }}</h3>
+      <button ng-click='givingFood();'> Feed Cassidy</button>
       <div>
-        <img ng-src='img/toby_{{status}}.jpg' alt="">
+        <img ng-src='img/cass_{{status}}.jpg' alt="">
       </div>
     </div>
 

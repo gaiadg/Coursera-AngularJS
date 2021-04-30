@@ -1,0 +1,41 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  color: #ffffff;
+  background: linear-gradient(#007991, #78ffd6);
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+h1  {
+  font-size: 80px;
+}
+
+input {
+  padding: 10px;
+  margin: 0 5px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+button {
+  width: 80%;
+  background-color: #ffffff;
+  border: solid 5px #355AF4;
+  border-radius: 30px;
+  padding: 50px;
+  margin: 100px;
+  color: #355AF4;
+  font-size: 40px;
+}
+
+#itemAnswer {
+  padding: 30px;
+  font-size: 25px;
+}
+
+.whiteBg {
+  background-color: #ffffff;
+}

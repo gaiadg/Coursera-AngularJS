@@ -4,13 +4,16 @@
   angular.module('feedApp', [])
   .controller('feederApp', feederApp);
 
-  feederApp.$inject = ['$scope'];
-  function feederApp($scope) {
+  feederApp.$inject = ['$scope', '$filter'];
+  function feederApp($scope, $filter) {
     $scope.name = "Toby";
     $scope.status = "hungry";
+    $scope.fishCost = ".56";
 
     $scope.sayMessage = function () {
-      return "Pls gimme fish";
+      var msg = "Pls gimme fish";
+      var outcome = $filter('uppercase')(msg);
+      return outcome;
     };
 
     $scope.givingFood = function () {
