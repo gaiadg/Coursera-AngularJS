@@ -1,5 +1,5 @@
 $("#buttonSkipIntro").on('click', function(){
-     window.location = "index.html";    
+     window.location = "ticket.html";
 });
 
 console.log("Hi this is Gaia");
