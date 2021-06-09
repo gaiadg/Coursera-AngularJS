@@ -66,27 +66,13 @@ function ShoppingListCheckOffService() {
 
   service.shiftItem = function (itemIndex) {
     var boughtItem = toBuyServiceArray[itemIndex];
-    console.log(itemIndex);
-    console.log(boughtItem);
-    console.log(boughtServiceArray.length);
-
     toBuyServiceArray.splice(itemIndex, 1);
-
     var item = {
       name: boughtItem.name,
       quantity: boughtItem.quantity
     };
     boughtServiceArray.push(item);
   };
-
-
-
-// When the user clicks on the "Bought" button,
-// simply pass the call from your (ng-click) controller-bound method
-// to call the right method (service.method) inside of your
-// ShoppingListCheckOffService service, which removes that item
-// from the "to buy" array and pushes it to the "bought" array.
-
 }
 
 
