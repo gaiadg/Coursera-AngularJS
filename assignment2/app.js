@@ -16,7 +16,6 @@ function ToBuyController(ShoppingListCheckOffService) {
   itemAdder.shiftItem = function (itemIndex) {
     ShoppingListCheckOffService.shiftItem(itemIndex);
   };
-
 }
 
 
@@ -25,10 +24,6 @@ function AlreadyBoughtController(ShoppingListCheckOffService) {
   var itemAdded = this;
 
   itemAdded.boughtServiceArray = ShoppingListCheckOffService.nowBoughtItems();
-
-// The reference to the "bought" items array should be placed/exposed
-// onto the AlreadyBoughtController instance as some property.
-
 
 }
 
