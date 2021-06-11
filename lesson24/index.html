@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Shopping List Check Off</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+  </head>
+<body ng-app="WeightLossApp">
+  <div class="container">
+    <h1>What would you like to eat</h1>
+    <br>
+    <div class="row" ng-controller="PrinterController as list">
+      <div class="col-md-12">
+       Add <input type="number" ng-model="list.itemQuantity" placeholder="quantity"> packs of
+       <input type="text" ng-model="list.itemName" placeholder="name">
+       <button ng-click="list.addItem();" type="button">Add it for me</button>
+      </div>
+      <div class="col-md-12">&nbsp;</div>
+      <div class="col-md-12">
+        <ol>
+          <li ng-repeat="item in list.items">
+            {{ item.quantity }} packs of {{ item.name }}
+            <button ng-click="list.removeItem($index);">Remove Item</button>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
