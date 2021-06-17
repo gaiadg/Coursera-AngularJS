@@ -1,41 +1,9 @@
-function myFunction() {
-	$(document).ready(function() {
-		$('#datepicker').attr("value", Date());
-	});
-}
 
-dayOfFlight = $("#datepicker").val().substr(0, 2);
-monthOfFlight = $("#datepicker").val().substr(4, 5);
-yearOfFlight = $("#datepicker").val().substr(7, 8, 9, 10);
-dateOfFlight = yearOfFlight + "/" + monthOfFlight + "/" + dayOfFlight;
-$(function() {
-	$("#datepicker").datepicker({
-		dateFormat: 'yy mm dd'
-	});
-});
-
-var datepicker = $("#datepicker");
-var datepickerPosition = datepicker.position();
-var datepickerPositionTop = datepickerPosition.top;
-console.log(datepickerPositionTop);
-var datepickerPositionLeft = datepickerPosition.left + 40;
-console.log(datepickerPositionLeft);
-// $("#ui-datepicker-div").css("top": "datepickerPositionTop", "left": "datepickerPositionleft");
-$("#datepicker").datepicker({
-	beforeShow: function(input, inst) {
-		setTimeout(function() {
-			inst.dpDiv.css({
-				top: datepickerPositionTop + 20,
-				left: datepickerPositionLeft - 20
-			});
-		}, 0);
-	}
-});
-
-console.log("Hi this is Gaia");
-// change background
+// CHANGING BACKGROUND ____________________________________________
 var myHours = new Date();
 var myHours = myHours.getHours();
+console.log(myHours);
+
 if (myHours >= 5 && myHours <= 9) {
 	$("body").addClass("gradient-day");
 	$("h1").css('color', '#000000');
@@ -44,7 +12,8 @@ if (myHours >= 5 && myHours <= 9) {
 	$("#buttonTellMeAboutFlight").css('color', '#000000');
 	$("#buttonTellMeAboutFlight").css('border-color', '#000000');
 	console.log("dawn");
-} else if (myHours > 9 && myHours <= 15) {
+}
+else if (myHours > 9 && myHours <= 15){
 	$("body").addClass("gradient-day");
 	$("h1").css('color', '#000000');
 	$("h3").css('color', '#000000');
@@ -53,9 +22,10 @@ if (myHours >= 5 && myHours <= 9) {
 	// $("input#airlineCode").css('color', '#000000');
 	$(".airport-group").css('border-bottom', '#000000');
 	$("input").addClass('gradientDay');
-	$("#mainlogo").css('background-image', 'url(img/AirplanemodeLogo-black.svg)');
+	$("#mainlogo").css('background-image', 'url(./style/img/AirplanemodeLogo-black.svg)');
 	console.log("day");
-} else if (myHours > 15 && myHours <= 17) {
+}
+else if (myHours > 15 && myHours <= 17) {
 	$("body").addClass("gradient-evening");
 	$("h1").css('color', '#000000');
 	$("h2").css('color', '#000000');
@@ -76,21 +46,24 @@ if (myHours >= 5 && myHours <= 9) {
 	$("input#datepicker").css('border-color', '#000000');
 	$(".airport-group").css('border-bottom', '#000000');
 	$("input").addClass('gradientDay');
-	$("#weatherFromIcon").css('background-image', 'url(img/sun-black.svg)');
-	$(".plane-icon").css('background-image', 'url(img/plane-icon-black.svg)');
-	$("#weatherToIcon").css('background-image', 'url(img/sun-black.svg)');
+	$("#weatherFromIcon").css('background-image', 'url(./style/img/sun-black.svg)');
+	$(".plane-icon").css('background-image', 'url(./style/img/plane-icon-black.svg)');
+	$("#weatherToIcon").css('background-image', 'url(./style/img/sun-black.svg)');
 	$("#terminal-Departure").css('color', '#000000');
 	$("#gate-Departure").css('color', '#000000');
 	$("#terminal-Arrival").css('color', '#000000');
 	$("#gate-Arrival").css('color', '#000000');
-	$("#mainlogo").css('background-image', 'url(img/AirplanemodeLogo-black.svg)');
+	$("#mainlogo").css('background-image', 'url(./style/img/AirplanemodeLogo-black.svg)');
 	console.log("afternoon");
-} else if (myHours > 17 && myHours <= 23) {
+}
+else if (myHours > 17 && myHours <= 23) {
 	$("body").addClass("gradient-night");
 	console.log("night");
 } else {
 	$("body").addClass("gradient-night");
 }
+
+// AJAX _____________________________________________________
 var uponSuccess = (function() {
 	data = {
 		appId: "68bf442a",
@@ -100,14 +73,15 @@ var uponSuccess = (function() {
 	airlineCode = $("#airlineFlightCode").val().substr(0, 2).toUpperCase();;
 	inputFlightCode = $("#airlineFlightCode").val().substr(2, 4);
 	// dateOfFlight = $( "#datepicker" ).val().toUpperCase();
-	dayOfFlight = $("#datepicker").val().substr(3, 2);
-	monthOfFlight = $("#datepicker").val().substr(0, 2);
-	yearOfFlight = $("#datepicker").val().substr(6, 4);
+	pickedDate = document.getElementById("datepicker2").value;
+	dayOfFlight = pickedDate.substr(0, 2);
+	monthOfFlight = pickedDate.substr(3, 2);
+	yearOfFlight = pickedDate.substr(6, 4);
 	dateOfFlight = yearOfFlight + "/" + monthOfFlight + "/" + dayOfFlight;
 	departureAirportInTheForm = $("#departureAirportInTheForm").val().toUpperCase();
 	utc = "false",
-		airport = departureAirportInTheForm,
-		codeType = "IATA",
+		// airport = departureAirportInTheForm,
+		// codeType = "IATA",
 		dep = dateOfFlight,
 		url = "https://api.flightstats.com/flex/flightstatus/rest/v2/jsonp/flight/status/" + airlineCode + "/" + inputFlightCode + "/dep/" + dep;
 	$.ajax({
@@ -156,11 +130,13 @@ var uponSuccess = (function() {
 					$("#weatherFromTemperature").html(temperatureFrom + "°c");
 					$("#weatherFromDescription").html(data.weather[0].description);
 					if (data.weather[0].main === "Clear") {
-						$('#weatherFromIcon').css("background-image", "url(img/sun.svg)");
-					} else if (data.weather[0].main === "Rain") {
-						$('#weatherFromIcon').css("background-image", "url(img/rain.svg)");
-					} else if (data.weather[0].main === "Clouds") {
-						$('#weatherFromIcon').css("background-image", "url(img/cloud.svg)");
+						$('#weatherFromIcon').css("background-image", "url(./style/img/sun.svg)");
+					}
+          else if (data.weather[0].main === "Rain") {
+						$('#weatherFromIcon').css("background-image", "url(./style/img/rain.svg)");
+					}
+          else if (data.weather[0].main === "Clouds") {
+						$('#weatherFromIcon').css("background-image", "url(./style/img/cloud.svg)");
 					}
 				})
 				$.getJSON("http://api.openweathermap.org/data/2.5/weather?lat=" + latTo + "&lon=" + lonTo + "&APPID=c9d1645108ea158910af690dc88c1d2e", function(data) {
@@ -169,11 +145,13 @@ var uponSuccess = (function() {
 					$("#weatherToTemperature").html(temperatureTo + "°c");
 					$("#weatherToDescription").html(data.weather[0].description);
 					if (data.weather[0].main === "Clear") {
-						$('#weatherToIcon').css("background-image", "url(img/sun.svg)");
-					} else if (data.weather[0].main === "Rain") {
-						$('#weatherToIcon').css("background-image", "url(img/rain.svg)");
-					} else if (data.weather[0].main === "Clouds") {
-						$('#weatherToIcon').css("background-image", "url(img/cloud.svg)");
+						$('#weatherToIcon').css("background-image", "url(./style/img/sun.svg)");
+					}
+          else if (data.weather[0].main === "Rain") {
+						$('#weatherToIcon').css("background-image", "url(./style/img/rain.svg)");
+					}
+          else if (data.weather[0].main === "Clouds") {
+						$('#weatherToIcon').css("background-image", "url(./style/img/cloud.svg)");
 					}
 				})
 			}
@@ -256,7 +234,8 @@ var uponSuccess = (function() {
 				if (data.flightStatuses[0].carrierFsCode === data.appendix.airlines[0].iata) {
 					//////// BETTER RUN A LOOP /////
 					$("#airline").html(data.appendix.airlines[0].name);
-				} else if (data.flightStatuses[0].carrierFsCode === data.appendix.airlines[1].iata) {
+				}
+        else if (data.flightStatuses[0].carrierFsCode === data.appendix.airlines[1].iata) {
 					$("#airline").html(data.appendix.airlines[1].name);
 				} else {
 					$("#airline").html(data.appendix.airlines[2].name);
@@ -290,11 +269,14 @@ var uponSuccess = (function() {
 		}
 	});
 });
+
 $('#inputFlightCodeForm').submit(function(event) {
 	event.preventDefault();
 	console.log("body!");
 	uponSuccess();
 });
+
+// DATEPICKER 2_____________________________________________________
 $(function() {
 	$("#datepicker").datepicker({
 		dateFormat: "yy/mm/dd",
@@ -305,11 +287,12 @@ $(function() {
 
 var datepicker = $("#datepicker");
 var datepickerPosition = datepicker.position();
-var datepickerPositionTop = datepickerPosition.top;
-console.log(datepickerPositionTop);
-var datepickerPositionLeft = datepickerPosition.left + 40;
-console.log(datepickerPositionLeft);
+// var datepickerPositionTop = datepickerPosition.top;
+// console.log(datepickerPositionTop);
+// var datepickerPositionLeft = datepickerPosition.left + 40;
+// console.log(datepickerPositionLeft);
 // $("#ui-datepicker-div").css("top": "datepickerPositionTop", "left": "datepickerPositionleft");
+
 $("#datepicker").datepicker({
 	beforeShow: function(input, inst) {
 		setTimeout(function() {

@@ -10,6 +10,14 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+.ui-datepicker {
+    border-radius: 10px;
+    width: 250px;
+    height: auto;
+    margin: 5px auto 0;
+    font-family: 'Roboto', sans-serif;
+}
+
 .ui-datepicker a {
     text-decoration: none;
 }
@@ -139,4 +147,3 @@ body {
 table {
     border-color: #ffffff;
 }
-
